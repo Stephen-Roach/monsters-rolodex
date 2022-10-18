@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CardList from './components/card-list/Card-list';
 
 import './App.css';
 
@@ -39,13 +40,8 @@ function App() {
         placeholder='search monsters'
         onChange={handleChange}
       />
-      {users.map((user) => {
-        return (
-          <div key={user.id}>
-            <h1>{user.name}</h1>
-          </div>
-        );
-      })}
+
+      <CardList monsters={users} />
     </div>
   );
 }

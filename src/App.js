@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,6 +14,7 @@ function App() {
       const newData = await response.json();
       console.log(newData);
       setUsers(newData);
+      setAllUsers(newData);
     };
 
     fetchData();
@@ -20,9 +22,11 @@ function App() {
 
   function handleChange(e) {
     const searchString = e.target.value.toLocaleLowerCase();
-    const filteredMonsters = users.filter((monster) => {
-      return monster.name.toLocaleLowerCase().includes(searchString);
-    });
+    const filteredMonsters =
+      allUsers &&
+      allUsers.filter((monster) => {
+        return monster.name.toLocaleLowerCase().includes(searchString);
+      });
 
     setUsers(filteredMonsters);
   }

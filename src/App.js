@@ -18,10 +18,29 @@ function App() {
     fetchData();
   }, []);
 
+  function handleChange(e) {
+    const searchString = e.target.value.toLocaleLowerCase();
+    const filteredMonsters = users.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(searchString);
+    });
+
+    setUsers(filteredMonsters);
+  }
+
   return (
     <div className='App'>
+      <input
+        className='search-box'
+        type='search'
+        placeholder='search monsters'
+        onChange={handleChange}
+      />
       {users.map((user) => {
-        return <h1 key={user.id}>{user.name}</h1>;
+        return (
+          <div key={user.id}>
+            <h1>{user.name}</h1>
+          </div>
+        );
       })}
     </div>
   );

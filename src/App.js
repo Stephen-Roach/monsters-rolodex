@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CardList from './components/card-list/Card-list';
+import SearchBox from './components/search-box/Search-box';
 
 import './App.css';
 
@@ -34,13 +35,11 @@ function App() {
 
   return (
     <div className='App'>
-      <input
+      <SearchBox
         className='search-box'
-        type='search'
+        handleChange={handleChange}
         placeholder='search monsters'
-        onChange={handleChange}
       />
-
       <CardList monsters={users} />
     </div>
   );

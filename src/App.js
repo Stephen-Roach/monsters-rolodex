@@ -36,7 +36,7 @@ function App() {
   return (
     <div className='App'>
       <SearchBox
-        className='search-box'
+        className='monsters-search-box'
         handleChange={handleChange}
         placeholder='search monsters'
       />

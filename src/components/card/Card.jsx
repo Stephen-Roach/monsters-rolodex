@@ -2,7 +2,8 @@ import './card.styles.css';
 
 import React from 'react';
 
-function Card({ id, name, email }) {
+function Card({ monster }) {
+  const { name, email, id } = monster;
   return (
     <div className='card-container' key={id}>
       <img

@@ -7,8 +7,8 @@ function CardList({ monsters }) {
   return (
     <div className='card-list'>
       {monsters.map((monster) => {
-        const { name, email, id } = monster;
-        return <Card name={name} email={email} id={id} key={id} />;
+        // const { name, email, id } = monster;
+        return <Card monster={monster} key={monster.id} />;
       })}
     </div>
   );

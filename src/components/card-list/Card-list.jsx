@@ -1,10 +1,14 @@
 import React from 'react';
+import './card-list.styles.css';
+
+import Card from '../card/Card';
 
 function CardList({ monsters }) {
   return (
-    <div>
+    <div className='card-list'>
       {monsters.map((monster) => {
-        return <h1 key={monster.id}>{monster.name}</h1>;
+        const { name, email, id } = monster;
+        return <Card name={name} email={email} id={id} key={id} />;
       })}
     </div>
   );
